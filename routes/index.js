@@ -1,9 +1,9 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const userRoutes = require('./user-routes');
-const thoughtRoutes = require('./thoughts-routes');
+import userRoutes from "./user-routes";
+import thoughtRoutes from "./thoughts-routes";
 
-router.use('/api/users', userRoutes);
-router.use('/api/thoughts', thoughtRoutes);
+router.use("/api/users", userRoutes);
+router.use("/api/thoughts", thoughtRoutes);
 
-module.exports = router;
+export default router;

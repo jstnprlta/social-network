@@ -1,5 +1,5 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -7,14 +7,17 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(require('./routes'));
+app.use(require("./routes").default);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-network', {
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/social-network",
+  {
     useFindAndModify: false,
     useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+    useUnifiedTopology: true,
+  }
+);
 
-mongoose.set('debug', true);
+mongoose.set("debug", true);
 
-app.listen(PORT, () => console.log(`Connect to localhost:${PORT}`))
+app.listen(PORT, () => console.log(`Connect to localhost:${PORT}`));
